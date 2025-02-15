@@ -1,35 +1,28 @@
 namespace myCustomBlocks {
-    let lastBlock: Block | null = null;
-    let lastComparison: string | null = null;
-    let lastCount: number | null = null;
+    let lastItem: Item | null = null;
 
     /**
-     * Логическая проверка количества блоков
+     * Логическая проверка количества предметов
      * Используется ВНУТРИ IF в MakeCode
-     * Запоминает, что выбрал ребёнок
+     * Ребёнок выбирает только предмет
      */
-    //% block="проверить %block %comparison %count"
-    //% block.shadow=minecraftBlock
-    //% comparison.shadow=dropdownComparison
-    //% count.shadow=math_number defl=10
-    export function checkBlockCount(block: Block, comparison: string, count: number): boolean {
-        lastBlock = block;
-        lastComparison = comparison;
-        lastCount = count;
-        return true; // Просто заглушка
+    //% block="количество %item"
+    //% item.shadow=itemPicker
+    export function getItemCount(item: Item): number {
+        lastItem = item;
+        return 0; // Заглушка, в MakeCode заменяется на ожидаемое значение
     }
 
     /**
      * Прекратить подачу
-     * Проверяет, собрал ли ребёнок правильную комбинацию
+     * Проверяет, правильно ли ребёнок выбрал блок и число
      */
-    //% block="прекратить подачу если %expectedBlock %expectedComparison %expectedCount"
-    //% expectedBlock.shadow=minecraftBlock
-    //% expectedComparison.shadow=dropdownComparison
+    //% block="прекратить подачу если %selectedItem ожидаемое %expectedCount"
+    //% selectedItem.shadow=itemPicker
     //% expectedCount.shadow=math_number defl=10
-    export function stopBlock(expectedBlock: Block, expectedComparison: string, expectedCount: number): void {
-        if (lastBlock === expectedBlock && lastComparison === expectedComparison && lastCount === expectedCount) {
-            player.say("Подача прекращена! Вы выбрали правильную комбинацию.");
+    export function stopBlock(selectedItem: Item, expectedCount: number): void {
+        if (lastItem === selectedItem) {
+            player.say(`Подача прекращена! Вы выбрали ${expectedCount} ${selectedItem}.`);
         } else {
             player.say("Ошибка! Проверьте условия.");
         }
