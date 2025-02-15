@@ -1,20 +1,35 @@
 namespace myCustomBlocks {
-    let lastBlock: Block | null = null;
-    let lastComparison: string | null = null;
+    let lastItem: Item | null = null;
+    let lastComparison: ComparisonOperator | null = null;
     let lastCount: number | null = null;
 
     /**
-     * Логическая проверка количества блоков
+     * Оператор сравнения (чтобы сделать выбор знака кликабельным)
+     */
+    enum ComparisonOperator {
+        //% block=">"
+        Greater = ">",
+        //% block="<"
+        Less = "<",
+        //% block=">="
+        GreaterOrEqual = ">=",
+        //% block="<="
+        LessOrEqual = "<=",
+        //% block="=="
+        Equal = "=="
+    }
+
+    /**
+     * Логическая проверка количества предметов
      * Используется ВНУТРИ IF в MakeCode
-     * НИКАКИХ вычислений не делает, просто визуальный блок
      * Запоминает, что выбрал ребёнок
      */
-    //% block="проверить %block %comparison %count"
-    //% block.shadow=minecraftBlock
-    //% comparison.defl=">=" // Дефолтное значение знака
-    //% count.shadow=math_number min=1 defl=10 // Дефолтное значение числа
-    export function checkBlockCount(block: Block, comparison: string, count: number): boolean {
-        lastBlock = block;
+    //% block="проверить %item %comparison %count"
+    //% item.shadow=itemPicker
+    //% comparison.defl=ComparisonOperator.GreaterOrEqual
+    //% count.shadow=math_number defl=10
+    export function checkItemCount(item: Item, comparison: ComparisonOperator, count: number): boolean {
+        lastItem = item;
         lastComparison = comparison;
         lastCount = count;
         return true; // Пустышка для MakeCode
@@ -24,12 +39,12 @@ namespace myCustomBlocks {
      * Прекратить подачу
      * Проверяет, собрал ли ребёнок правильную комбинацию
      */
-    //% block="прекратить подачу если %expectedBlock %expectedComparison %expectedCount"
-    //% expectedBlock.shadow=minecraftBlock
-    //% expectedComparison.defl=">=" // Дефолтный знак сравнения
-    //% expectedCount.shadow=math_number min=1 defl=10 // Дефолтное число
-    export function stopBlock(expectedBlock: Block, expectedComparison: string, expectedCount: number): void {
-        if (lastBlock === expectedBlock && lastComparison === expectedComparison && lastCount === expectedCount) {
+    //% block="прекратить подачу если %expectedItem %expectedComparison %expectedCount"
+    //% expectedItem.shadow=itemPicker
+    //% expectedComparison.defl=ComparisonOperator.GreaterOrEqual
+    //% expectedCount.shadow=math_number defl=10
+    export function stopItem(expectedItem: Item, expectedComparison: ComparisonOperator, expectedCount: number): void {
+        if (lastItem === expectedItem && lastComparison === expectedComparison && lastCount === expectedCount) {
             player.say("Подача прекращена! Вы выбрали правильную комбинацию.");
         } else {
             player.say("Ошибка! Проверьте условия.");
