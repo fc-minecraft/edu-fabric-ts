@@ -20,7 +20,7 @@ namespace myCustomBlocks {
      * Проверяет, правильно ли ребёнок собрал конструкцию в MD
      * Ожидаемое значение передаётся скрыто через MD
      */
-    //% block="прекратить подачу (скрыто %expectedItem %expectedCount)"
+    //% block="прекратить подачу"
     //% expectedItem.shadow=itemPicker
     //% expectedCount.shadow=math_number defl=10
     export function stopBlock(expectedItem: Item, expectedCount: number): void {
