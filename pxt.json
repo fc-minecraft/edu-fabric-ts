@@ -1,6 +1,6 @@
 {
     "name": "hoc22-ts",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "dependencies": {
         "core": "*",
         "builder": "*"
