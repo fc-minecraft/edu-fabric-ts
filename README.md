@@ -1,2 +1,2 @@
-# minecraft-fabric-ts
+# hoc22-ts
 This is a project

@@ -1,6 +1,6 @@
 {
-    "name": "minecraft-fabric-ts",
-    "version": "0.0.1",
+    "name": "hoc22-ts",
+    "version": "0.0.5",
     "dependencies": {
         "core": "*",
         "builder": "*"
@@ -8,7 +8,11 @@
     "files": [
         "README.md",
         "behavior.ts",
-        "tutorial-info-cache.json"
+        "tutorial-info-cache.json",
+        "custom.jres",
+        "RedLaserSlide.jres",
+        "_locales/ru/hoc22-ts-jsdoc-strings.json",
+        "_locales/ru/hoc22-ts-strings.json"
     ],
     "targetVersions": {
         "target": "2.0.30",
