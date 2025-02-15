@@ -8,9 +8,9 @@ namespace myCustomBlocks {
      * Используется ВНУТРИ IF в MakeCode
      * Запоминает, что выбрал ребёнок
      */
-    //% block="проверить %block %comparison %count"
+    //% block="количество %item"
     //% item.shadow=itemPicker
-    export function checkBlockCount(item: Item, comparison: string, count: number): number {
+    export function checkBlockCount(item: Item, count: number): number {
         lastItem = item;
         return item === lastExpectedItem ? lastExpectedCount : 0;
     }
@@ -21,8 +21,6 @@ namespace myCustomBlocks {
      * Ожидаемое значение передаётся скрыто через MD
      */
     //% block="прекратить подачу"
-    //% expectedItem.shadow=itemPicker
-    //% expectedCount.shadow=math_number defl=10
     export function stopBlock(expectedItem: Item, expectedCount: number): void {
         lastExpectedItem = expectedItem;
         lastExpectedCount = expectedCount;
