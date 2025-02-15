@@ -9,14 +9,10 @@ namespace myCustomBlocks {
      * Запоминает, что выбрал ребёнок
      */
     //% block="проверить %block %comparison %count"
-    //% block.shadow=minecraftBlock
-    //% comparison.shadow=dropdownComparison
-    //% count.shadow=math_number defl=10
-    export function checkBlockCount(block: Block, comparison: string, count: number): boolean {
-        lastBlock = block;
-        lastComparison = comparison;
-        lastCount = count;
-        return true; // Просто заглушка
+    //% item.shadow=itemPicker
+    export function checkBlockCount(item: Item, comparison: string, count: number): number {
+        lastItem = item;
+        return item === lastExpectedItem ? lastExpectedCount : 0;
     }
 
     /**
