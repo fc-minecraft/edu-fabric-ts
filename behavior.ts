@@ -4,15 +4,19 @@ namespace myCustomBlocks {
     let lastExpectedCount: number = 0;
 
     /**
-     * Логическая проверка количества предметов
+     * Логическая проверка количества блоков
      * Используется ВНУТРИ IF в MakeCode
-     * Ребёнок выбирает только предмет, а количество передаётся в MD
+     * Запоминает, что выбрал ребёнок
      */
-    //% block="количество %item"
-    //% item.shadow=itemPicker
-    export function getItemCount(item: Item): number {
-        lastItem = item;
-        return item === lastExpectedItem ? lastExpectedCount : 0; // Если предмет правильный, вернуть число из MD, иначе 0
+    //% block="проверить %block %comparison %count"
+    //% block.shadow=minecraftBlock
+    //% comparison.shadow=dropdownComparison
+    //% count.shadow=math_number defl=10
+    export function checkBlockCount(block: Block, comparison: string, count: number): boolean {
+        lastBlock = block;
+        lastComparison = comparison;
+        lastCount = count;
+        return true; // Просто заглушка
     }
 
     /**
