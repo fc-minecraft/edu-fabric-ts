@@ -1,43 +1,38 @@
 namespace myCustomBlocks {
+    let lastBlock: Block | null = null;
+    let lastComparison: string | null = null;
+    let lastCount: number | null = null;
 
     /**
-     * Проверка количества какао
+     * Логическая проверка количества блоков
+     * Используется ВНУТРИ IF в MakeCode
+     * НИКАКИХ вычислений не делает, просто визуальный блок
+     * Запоминает, что выбрал ребёнок
      */
-    //% block="количество какао больше 10"
-    export function checkCocoa(): boolean {
-        let cocoaCount = 0;
-
-        // Проверяем количество блоков какао в области 10x10x10 вокруг игрока
-        for (let x = -5; x <= 5; x++) {
-            for (let y = -5; y <= 5; y++) {
-                for (let z = -5; z <= 5; z++) {
-                    if (blocks.testForBlock(Block.Cocoa, positions.create(x, y, z))) {
-                        cocoaCount++;
-                    }
-                }
-            }
-        }
-
-        return cocoaCount > 10;
+    //% block="проверить %block %comparison %count"
+    //% block.shadow=minecraftBlock
+    //% comparison.shadow=comparisonOperator
+    //% count.shadow=math_number min=1
+    export function checkBlockCount(block: Block, comparison: string, count: number): boolean {
+        lastBlock = block;
+        lastComparison = comparison;
+        lastCount = count;
+        return true; // Пустышка для MakeCode
     }
 
     /**
-     * Блок "стоп"
+     * Прекратить подачу
+     * Проверяет, собрал ли ребёнок правильную комбинацию
      */
-    //% block="стоп"
-    export function stopBlock(): void {
-        player.say("Вы достигли условия 'какао больше 10'. Код завершен.");
-    }
-
-    /**
-     * Проверка последовательности блоков
-     */
-    //% block="проверить последовательность"
-    export function checkSequence(): void {
-        if (checkCocoa()) {
-            stopBlock();
+    //% block="прекратить подачу если %expectedBlock %expectedComparison %expectedCount"
+    //% expectedBlock.shadow=minecraftBlock
+    //% expectedComparison.shadow=comparisonOperator
+    //% expectedCount.shadow=math_number min=1
+    export function stopBlock(expectedBlock: Block, expectedComparison: string, expectedCount: number): void {
+        if (lastBlock === expectedBlock && lastComparison === expectedComparison && lastCount === expectedCount) {
+            player.say("Подача прекращена! Вы выбрали правильную комбинацию.");
         } else {
-            player.say("Какао недостаточно. Продолжайте собирать.");
+            player.say("Ошибка! Проверьте условия.");
         }
     }
 }
