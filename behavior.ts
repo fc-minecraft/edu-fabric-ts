@@ -27,8 +27,6 @@ namespace myCustomBlocks {
     //% block="количество %item %operator %expectedInputCount"
     //% item.shadow=minecraftItem
     //% operator.shadow=comparison_operator
-    //% expectedInputCount.shadow=math_number
-    //% expectedInputCount.defl=10
     export function getItemCount(item: Item, operator: ComparisonOperator, expectedInputCount: number): boolean {
         lastItem = item;
 
