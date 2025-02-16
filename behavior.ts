@@ -25,7 +25,7 @@ namespace myCustomBlocks {
      * Позволяет выбрать предмет, оператор сравнения и ввести число
      */
     //% block="количество %item %operator %expectedInputCount"
-    export function getItemCount2(item: Item, operator: ComparisonOperator, n: number): boolean {
+    export function getItemCount(item: Item, operator: ComparisonOperator, n: number): boolean {
         lastItem = item;
 
         if (item !== lastExpectedItem) {
