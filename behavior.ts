@@ -8,7 +8,7 @@ namespace myCustomBlocks {
      * Используется ВНУТРИ IF в MakeCode
      * Запоминает, какой блок выбрал ребёнок
      */
-    //% block="количество %block"
+    //% block="количество %block ожидаемое %count"
     //% block.shadow=minecraftBlock
     //% count.shadow=math_number defl=10
     export function getBlockCount(block: Block, count: number): number {
@@ -21,7 +21,7 @@ namespace myCustomBlocks {
      * Проверяет, правильно ли ребёнок собрал конструкцию в MD
      * Ожидаемое значение передаётся скрыто через MD
      */
-    //% block="прекратить подачу"
+    //% block="прекратить подачу (скрыто %expectedBlock %expectedCount)"
     //% expectedBlock.shadow=minecraftBlock
     //% expectedCount.shadow=math_number defl=10
     export function stopBlock(expectedBlock: Block, expectedCount: number): void {
