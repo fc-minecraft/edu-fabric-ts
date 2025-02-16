@@ -24,10 +24,12 @@ namespace myCustomBlocks {
      * Используется ВНУТРИ IF в MakeCode
      * Позволяет выбрать предмет, оператор сравнения и ввести число
      */
-    //% block="количество %item %operator %expectedInputCount"
+    //% block="количество %item %operator %count"
     //% item.shadow=minecraftItem
     //% operator.shadow=comparison_operator
-    export function getItemCount(item: Item, operator: ComparisonOperator, expectedInputCount: number): boolean {
+    //% count.shadow=number
+    //% count.defl=10
+    export function getItemCount(item: Item, operator: ComparisonOperator, count: number): boolean {
         lastItem = item;
 
         if (item !== lastExpectedItem) {
@@ -37,15 +39,15 @@ namespace myCustomBlocks {
         // Используем оператор сравнения
         switch (operator) {
             case ComparisonOperator.GreaterThan:
-                return lastExpectedCount > expectedInputCount;
+                return lastExpectedCount > count;
             case ComparisonOperator.LessThan:
-                return lastExpectedCount < expectedInputCount;
+                return lastExpectedCount < count;
             case ComparisonOperator.GreaterOrEqual:
-                return lastExpectedCount >= expectedInputCount;
+                return lastExpectedCount >= count;
             case ComparisonOperator.LessOrEqual:
-                return lastExpectedCount <= expectedInputCount;
+                return lastExpectedCount <= count;
             case ComparisonOperator.Equal:
-                return lastExpectedCount === expectedInputCount;
+                return lastExpectedCount === count;
             default:
                 return false;
         }
