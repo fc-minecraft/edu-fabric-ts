@@ -37,5 +37,6 @@ namespace myCustomBlocks {
         } else {
             player.say("Ошибка! Проверьте условия.");
         }
+        player.say("Команда отработала.");
     }
 }
