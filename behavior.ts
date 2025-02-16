@@ -53,6 +53,37 @@ namespace myCustomBlocks {
         }
     }
 
+
+    /**
+     * Логическая проверка количества предметов
+     * Используется ВНУТРИ IF в MakeCode
+     * Позволяет выбрать предмет, оператор сравнения и ввести число
+     */
+    //% block="количество %item %operator %expectedInputCount"
+    export function getItemCount2(item: Item, operator: ComparisonOperator, n: number): boolean {
+        lastItem = item;
+
+        if (item !== lastExpectedItem) {
+            return false; // Если выбран не тот предмет, сразу возвращаем false
+        }
+
+        // Используем оператор сравнения
+        switch (operator) {
+            case ComparisonOperator.GreaterThan:
+                return lastExpectedCount > n;
+            case ComparisonOperator.LessThan:
+                return lastExpectedCount < n;
+            case ComparisonOperator.GreaterOrEqual:
+                return lastExpectedCount >= n;
+            case ComparisonOperator.LessOrEqual:
+                return lastExpectedCount <= n;
+            case ComparisonOperator.Equal:
+                return lastExpectedCount === n;
+            default:
+                return false;
+        }
+    }
+
     /**
      * Shift Green Row Right
      */
