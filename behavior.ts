@@ -16,6 +16,15 @@ namespace myCustomBlocks {
     }
 
     /**
+    * Скрытая функция для установки ожидаемых значений
+    * Используется в MD, не видна игроку
+    */
+    export function setExpectedValues(expectedItem: Item, expectedCount: number): void {
+        lastExpectedItem = expectedItem;
+        lastExpectedCount = expectedCount;
+    }
+
+    /**
      * Прекратить подачу
      * Проверяет, правильно ли ребёнок собрал конструкцию в MD
      * Ожидаемое значение передаётся скрыто через MD
