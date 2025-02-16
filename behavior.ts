@@ -25,41 +25,6 @@ namespace myCustomBlocks {
      * Позволяет выбрать предмет, оператор сравнения и ввести число
      */
     //% block="количество %item %operator %expectedInputCount"
-    //% item.shadow=minecraftItem
-    //% operator.shadow=comparison_operator
-    //% expectedInputCount.shadow=intvalue
-    //% expectedInputCount.defl=10
-    export function getItemCount(item: Item, operator: ComparisonOperator, expectedInputCount: number): boolean {
-        lastItem = item;
-
-        if (item !== lastExpectedItem) {
-            return false; // Если выбран не тот предмет, сразу возвращаем false
-        }
-
-        // Используем оператор сравнения
-        switch (operator) {
-            case ComparisonOperator.GreaterThan:
-                return lastExpectedCount > expectedInputCount;
-            case ComparisonOperator.LessThan:
-                return lastExpectedCount < expectedInputCount;
-            case ComparisonOperator.GreaterOrEqual:
-                return lastExpectedCount >= expectedInputCount;
-            case ComparisonOperator.LessOrEqual:
-                return lastExpectedCount <= expectedInputCount;
-            case ComparisonOperator.Equal:
-                return lastExpectedCount === expectedInputCount;
-            default:
-                return false;
-        }
-    }
-
-
-    /**
-     * Логическая проверка количества предметов
-     * Используется ВНУТРИ IF в MakeCode
-     * Позволяет выбрать предмет, оператор сравнения и ввести число
-     */
-    //% block="количество %item %operator %expectedInputCount"
     export function getItemCount2(item: Item, operator: ComparisonOperator, n: number): boolean {
         lastItem = item;
 
@@ -81,16 +46,6 @@ namespace myCustomBlocks {
                 return lastExpectedCount === n;
             default:
                 return false;
-        }
-    }
-
-    /**
-     * Shift Green Row Right
-     */
-    //% block="%item %operator %n"
-    export function GreenRightLaser(item: Item, operator: ComparisonOperator, n: number): void {
-        for (let i = 0; i < n; i++) {
-            player.say("OK.");
         }
     }
 
