@@ -4,9 +4,9 @@ namespace myCustomBlocks {
     let lastExpectedCount: number = 0;
 
     /**
-     * Операторы сравнения
+     * Операторы сравнения (выпадающий список в MakeCode)
      */
-    enum ComparisonOperator {
+    export enum ComparisonOperator {
         //% block=">"
         GreaterThan,
         //% block="<"
@@ -26,8 +26,9 @@ namespace myCustomBlocks {
      */
     //% block="количество %item %operator %expectedInputCount"
     //% item.shadow=minecraftItem
-    //% operator.shadow=dropdown
-    //% expectedInputCount.shadow=math_number defl=10
+    //% operator.shadow=comparison_operator
+    //% expectedInputCount.shadow=math_number
+    //% expectedInputCount.defl=10
     export function getItemCount(item: Item, operator: ComparisonOperator, expectedInputCount: number): boolean {
         lastItem = item;
 
