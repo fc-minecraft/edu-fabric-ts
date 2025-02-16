@@ -56,8 +56,8 @@ namespace myCustomBlocks {
     /**
      * Shift Green Row Right
      */
-    //% block="shift right `Custom.GreenRight` by %n"
-    export function GreenRightLaser(n: number): void {
+    //% block="%item %operator %n"
+    export function GreenRightLaser(item: Item, operator: ComparisonOperator, n: number): void {
         for (let i = 0; i < n; i++) {
             player.say("OK.");
         }
