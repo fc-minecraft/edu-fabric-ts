@@ -30,8 +30,7 @@ namespace myCustomBlocks {
         lastOperator = operator;
         lastCount = n;
 
-        // Проверяем предмет и оператор с жёстко заданными значениями
-        return (item === Item.CocoaBeans && operator === ComparisonOperator.LessOrEqual && n <= 10);
+        return true;
     }
 
     /**
@@ -43,6 +42,9 @@ namespace myCustomBlocks {
         if (lastItem === Item.CocoaBeans && lastOperator === ComparisonOperator.LessOrEqual && lastCount <= 10) {
             player.say("Подача завершена! Ожидалось: 10 Какао-бобов.");
             blocks.place(Block.RedstoneBlock, world(0, 4, 0)); // Ставим блок красного камня в мире
+            lastCount = 0;
+            lastItem = null;
+            lastOperator = null;
         } else {
             player.say("Ошибка! Проверьте условия.");
         }
