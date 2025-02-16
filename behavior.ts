@@ -54,6 +54,16 @@ namespace myCustomBlocks {
     }
 
     /**
+     * Shift Green Row Right
+     */
+    //% block="shift right `Custom.GreenRight` by %n"
+    export function GreenRightLaser(n: number): void {
+        for (let i = 0; i < n; i++) {
+            player.say("OK.");
+        }
+    }
+
+    /**
      * Скрытая функция для установки ожидаемых значений
      * Используется в MD, не видна игроку
      */
