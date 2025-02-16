@@ -2,6 +2,7 @@ namespace myCustomBlocks {
     let lastItem: Item | null = null;
     let lastExpectedItem: Item | null = null;
     let lastExpectedCount: number = 0;
+    let lastOperator: ComparisonOperator | null = null;
 
     /**
      * Операторы сравнения (выпадающий список в MakeCode)
@@ -27,6 +28,7 @@ namespace myCustomBlocks {
     //% block="количество %item %operator %expectedInputCount"
     export function getItemCount(item: Item, operator: ComparisonOperator, n: number): boolean {
         lastItem = item;
+        lastOperator = operator;
 
         if (item !== lastExpectedItem) {
             return false; // Если выбран не тот предмет, сразу возвращаем false
@@ -56,6 +58,7 @@ namespace myCustomBlocks {
     export function setExpectedValues(expectedItem: Item, expectedCount: number): void {
         lastExpectedItem = expectedItem;
         lastExpectedCount = expectedCount;
+        player.say("Команда установки значений отработала." + lastExpectedItem + lastExpectedCount);
     }
 
     /**
@@ -64,7 +67,9 @@ namespace myCustomBlocks {
      */
     //% block="прекратить подачу"
     export function stopBlock(): void {
-        if (lastItem === lastExpectedItem) {
+        if (lastItem === lastExpectedItem &&
+            lastOperator === ComparisonOperator.GreaterOrEqual &&
+            lastExpectedCount === 10) {
             player.say(`Подача прекращена! Ожидалось: ${lastExpectedCount} ${lastExpectedItem}.`);
             blocks.place(Block.RedstoneBlock, world(0, 4, 0)); // Ставим блок красного камня в мире
         } else {
