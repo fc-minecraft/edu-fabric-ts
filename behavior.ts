@@ -1,9 +1,4 @@
 namespace myCustomBlocks {
-    let lastItem: Item | null = null;
-    let lastExpectedItem: Item | null = null;
-    let lastExpectedCount: number = 0;
-    let lastOperator: ComparisonOperator | null = null;
-
     /**
      * Операторы сравнения (выпадающий список в MakeCode)
      */
@@ -20,6 +15,10 @@ namespace myCustomBlocks {
         Equal
     }
 
+    let lastItem: Item | null = null;
+    let lastOperator: ComparisonOperator | null = null;
+    let lastCount: number = 0;
+
     /**
      * Логическая проверка количества предметов
      * Используется ВНУТРИ IF в MakeCode
@@ -29,36 +28,10 @@ namespace myCustomBlocks {
     export function getItemCount(item: Item, operator: ComparisonOperator, n: number): boolean {
         lastItem = item;
         lastOperator = operator;
+        lastCount = n;
 
-        if (item !== lastExpectedItem) {
-            return false; // Если выбран не тот предмет, сразу возвращаем false
-        }
-
-        // Используем оператор сравнения
-        switch (operator) {
-            case ComparisonOperator.GreaterThan:
-                return lastExpectedCount > n;
-            case ComparisonOperator.LessThan:
-                return lastExpectedCount < n;
-            case ComparisonOperator.GreaterOrEqual:
-                return lastExpectedCount >= n;
-            case ComparisonOperator.LessOrEqual:
-                return lastExpectedCount <= n;
-            case ComparisonOperator.Equal:
-                return lastExpectedCount === n;
-            default:
-                return false;
-        }
-    }
-
-    /**
-     * Скрытая функция для установки ожидаемых значений
-     * Используется в MD, не видна игроку
-     */
-    export function setExpectedValues(expectedItem: Item, expectedCount: number): void {
-        lastExpectedItem = expectedItem;
-        lastExpectedCount = expectedCount;
-        player.say("Команда установки значений отработала." + lastExpectedItem + lastExpectedCount);
+        // Проверяем предмет и оператор с жёстко заданными значениями
+        return (item === Item.CocoaBeans && operator === ComparisonOperator.LessOrEqual && n <= 10);
     }
 
     /**
@@ -67,14 +40,11 @@ namespace myCustomBlocks {
      */
     //% block="прекратить подачу"
     export function stopBlock(): void {
-        if (lastItem === lastExpectedItem &&
-            lastOperator === ComparisonOperator.GreaterOrEqual &&
-            lastExpectedCount === 10) {
-            player.say(`Подача прекращена! Ожидалось: ${lastExpectedCount} ${lastExpectedItem}.`);
+        if (lastItem === Item.CocoaBeans && lastOperator === ComparisonOperator.LessOrEqual && lastCount <= 10) {
+            player.say("Подача завершена! Ожидалось: 10 Какао-бобов.");
             blocks.place(Block.RedstoneBlock, world(0, 4, 0)); // Ставим блок красного камня в мире
         } else {
             player.say("Ошибка! Проверьте условия.");
         }
-        player.say("Команда отработала.");
     }
 }
