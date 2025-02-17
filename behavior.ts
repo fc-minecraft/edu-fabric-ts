@@ -39,7 +39,7 @@ namespace myCustomBlocks {
      */
     //% block="прекратить подачу"
     export function stopBlock(): void {
-        if (lastItem === Item.CocoaBeans && lastOperator === ComparisonOperator.LessOrEqual && lastCount <= 10) {
+        if (lastItem === Item.CocoaBeans && lastOperator === ComparisonOperator.LessOrEqual && lastCount === 10) {
             player.say("Подача завершена! Ожидалось: 10 Какао-бобов.");
             blocks.place(Block.RedstoneBlock, world(0, 4, 0)); // Ставим блок красного камня в мире
             lastCount = 0;
