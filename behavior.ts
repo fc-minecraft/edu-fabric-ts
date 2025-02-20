@@ -163,11 +163,9 @@ namespace myCustomBlocks {
      * Установить предмет агенту с ограниченным выбором блоков
      * (Использует стандартные иконки MakeCode)
      */
-    //% block="выдать агенту $blockType количеством $count"
-    //% blockType.shadow=minecraftBlock
-    //% count.min=1 count.max=64
-    export function agentSetLimitedItem(blockType: LimitedBlocks, count: number): void {
-        agent.setItem(blockType, count, 1);
+    //% block="выдать агенту `Block.PackedIce` количеством $count"
+    export function agentSetLimitedItem(count: number): void {
+        agent.setItem(Block.PackedIce, count, 1);
     }
 
 
