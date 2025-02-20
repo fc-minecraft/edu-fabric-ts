@@ -162,7 +162,7 @@ namespace myCustomBlocks {
     /**
      * Выдать предмет агенту
      */
-    //% block="выдать агенту `Block.PackedIce` количеством $count"
+    //% block="выдать агенту `Block.PackedIce` в количестве $count"
     export function agentSetLimitedItem(count: number): void {
         agent.setItem(Block.PackedIce, count, 1);
     }
