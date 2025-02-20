@@ -49,4 +49,45 @@ namespace myCustomBlocks {
             player.say("Ошибка! Проверьте условия.");
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /**
+     * Ограниченные блоки для MakeCode
+     */
+    export enum LimitedBlocks {
+        //% block="плотный лёд"
+        PackedIce = Block.PackedIce,
+        //% block="снег"
+        SnowBlock = Block.Snow,
+        //% block="белая шерсть"
+        WhiteWool = Block.Wool
+    }
+
+    /**
+     * Установить предмет агенту с ограниченным выбором блоков
+     */
+    //% block="агент получает %block количеством %count в слот %slot"
+    //% count.min=1 count.max=64 slot.min=1 slot.max=9
+    export function agentSetLimitedItem(block: LimitedBlocks, count: number, slot: number): void {
+        agent.setItem(block, count, slot);
+    }
+
+
 }
