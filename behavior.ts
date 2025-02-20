@@ -167,11 +167,31 @@ namespace myCustomBlocks {
         agent.setItem(Block.PackedIce, count, 1);
     }
 
+
+    /**
+     * Пользовательский список направлений для агента
+     */
+    export enum CustomDirection {
+        //% block="вверх"
+        Up = SixDirection.Up,
+        //% block="вниз"
+        Down = SixDirection.Down,
+        //% block="вперёд"
+        Forward = SixDirection.Forward,
+        //% block="назад"
+        Back = SixDirection.Back,
+        //% block="влево"
+        Left = SixDirection.Left,
+        //% block="вправо"
+        Right = SixDirection.Right
+    }
+
     /**
      * Агент ставит блок в указанном направлении
      */
     //% block="агент: разместить блок %direction"
     //% direction.shadow=minecraftAgentSixDirection
+    //% color=#FF0000
     export function agentPlaceBlock(direction: number): void {
         agent.place(direction);
     }
