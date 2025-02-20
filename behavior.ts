@@ -89,7 +89,6 @@ namespace myCustomBlocks {
      * Установить предмет агенту с визуальным выбором блоков
      */
     //% block="выдать агенту %block в количестве %count в слот %slot"
-    //% count.min=1 count.max=64 slot.min=1 slot.max=9
     export function agentSetLimitedItem(block: LimitedBlocks, count: number, slot: number): void {
         agent.setItem(block, count, slot);
     }
