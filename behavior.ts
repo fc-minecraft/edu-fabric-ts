@@ -87,7 +87,6 @@ namespace myCustomBlocks {
      */
     //% block="агент получает $block количеством $count"
     //% block.shadow=minecraftBlock
-    //% block.defl=Block.PackedIce
     //% count.min=1 count.max=64
     export function agentSetLimitedItem(block: LimitedBlocks, count: number): void {
         agent.setItem(block, count, 1);
