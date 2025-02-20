@@ -69,21 +69,26 @@ namespace myCustomBlocks {
 
 
     /**
-     * Ограниченные блоки для MakeCode
+     * Ограниченные блоки с визуальным меню выбора
      */
-    export enum LimitedBlocks {
+    enum LimitedBlocks {
+        //% blockIdentity=blocks.block
         //% block="плотный лёд"
         PackedIce = Block.PackedIce,
+
+        //% blockIdentity=blocks.block
         //% block="снег"
         SnowBlock = Block.Snow,
+
+        //% blockIdentity=blocks.block
         //% block="белая шерсть"
         WhiteWool = Block.Wool
     }
 
     /**
-     * Установить предмет агенту с ограниченным выбором блоков
+     * Установить предмет агенту с визуальным выбором блоков
      */
-    //% block="агент получает %block количеством %count в слот %slot"
+    //% block="выдать агенту %block в количестве %count в слот %slot"
     //% count.min=1 count.max=64 slot.min=1 slot.max=9
     export function agentSetLimitedItem(block: LimitedBlocks, count: number, slot: number): void {
         agent.setItem(block, count, slot);
