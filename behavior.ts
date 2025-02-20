@@ -67,33 +67,31 @@ namespace myCustomBlocks {
 
 
 
+    /**
+     * Ограниченные блоки с визуальным выбором в MakeCode
+     */
+    enum LimitedBlocks {
+        //% block="плотный лёд"
+        PackedIce = Block.PackedIce,
 
-    namespace myCustomBlocks {
-        /**
-         * Ограниченные блоки с визуальным выбором в MakeCode
-         */
-        enum LimitedBlocks {
-            //% block="плотный лёд"
-            PackedIce = Block.PackedIce,
+        //% block="снег"
+        SnowBlock = Block.Snow,
 
-            //% block="снег"
-            SnowBlock = Block.Snow,
-
-            //% block="белая шерсть"
-            WhiteWool = Block.Wool
-        }
-
-        /**
-         * Установить предмет агенту с ограниченным выбором блоков
-         */
-        //% block="агент получает $b количеством $count"
-        //% b.shadow=minecraftBlock
-        //% b.defl=Block.PackedIce
-        //% count.min=1 count.max=64
-        export function agentSetLimitedItem(b: LimitedBlocks, count: number): void {
-            agent.setItem(b, count, 1);
-        }
+        //% block="белая шерсть"
+        WhiteWool = Block.Wool
     }
+
+    /**
+     * Установить предмет агенту с ограниченным выбором блоков
+     */
+    //% block="агент получает $blockType количеством $count"
+    //% blockType.shadow=minecraftBlock
+    //% blockType.defl=Block.PackedIce
+    //% count.min=1 count.max=64
+    export function agentSetLimitedItem(blockType: LimitedBlocks, count: number): void {
+        agent.setItem(blockType, count, 1);
+    }
+
 
 
 
