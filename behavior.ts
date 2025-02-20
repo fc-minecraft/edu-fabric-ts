@@ -190,9 +190,9 @@ namespace myCustomBlocks {
      * Агент ставит блок в указанном направлении
      */
     //% block="агент: разместить блок %direction"
-    //% direction.shadow=minecraftAgentSixDirection
-    //% color=#FF0000
-    export function agentPlaceBlock(direction: number): void {
+    //% direction.shadow=customDirectionPicker
+    //% color=#d83b01
+    export function agentPlaceBlock(direction: CustomDirection): void {
         agent.place(direction);
     }
 
