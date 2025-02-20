@@ -169,10 +169,8 @@ namespace myCustomBlocks {
 
     /**
      * Агент ставит блок в указанном направлении
-     * @param direction Направление, в котором агент должен разместить блок
      */
     //% block="агент: разместить блок %direction"
-    //% group="Действия"
     //% direction.shadow=minecraftAgentSixDirection
     export function agentPlaceBlock(direction: number): void {
         agent.place(direction);
