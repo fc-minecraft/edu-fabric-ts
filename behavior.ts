@@ -162,11 +162,9 @@ namespace myCustomBlocks {
     /**
      * Установить предмет агенту с ограниченным выбором блоков
      */
-    //% block="агент получает $blockType количеством $count"
-    //% blockType.shadow=minecraftBlock
-    //% count.min=1 count.max=64
-    export function agentSetLimitedItem(blockType: LimitedBlocks, count: number): void {
-        agent.setItem(blockType, count, 1);
+    //% block="агент получает $blockType количеством $n"
+    export function agentSetLimitedItem(blockType: LimitedBlocks, n: number): void {
+        agent.setItem(blockType, n, 1);
     }
 
 
