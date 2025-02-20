@@ -69,28 +69,26 @@ namespace myCustomBlocks {
 
 
     /**
-     * Ограниченные блоки с визуальным меню выбора
+     * Ограниченные блоки с визуальным выбором
      */
     enum LimitedBlocks {
-        //% blockIdentity=blocks.block
-        //% block="плотный лёд"
+        //% blockIdentity=blocks.block enumval=174 block="плотный лёд"
         PackedIce = Block.PackedIce,
 
-        //% blockIdentity=blocks.block
-        //% block="снег"
+        //% blockIdentity=blocks.block enumval=80 block="снег"
         SnowBlock = Block.Snow,
 
-        //% blockIdentity=blocks.block
-        //% block="белая шерсть"
+        //% blockIdentity=blocks.block enumval=35 block="белая шерсть"
         WhiteWool = Block.Wool
     }
 
     /**
-     * Установить предмет агенту с визуальным выбором блоков
+     * Установить предмет агенту с ограниченным выбором блоков
      */
-    //% block="выдать агенту %block в количестве %count в слот %slot"
-    export function agentSetLimitedItem(block: LimitedBlocks, count: number, slot: number): void {
-        agent.setItem(block, count, slot);
+    //% block="агент получает $block количеством $count"
+    //% count.min=1 count.max=64
+    export function agentSetLimitedItem(block: LimitedBlocks, count: number): void {
+        agent.setItem(block, count, 1);
     }
 
 
