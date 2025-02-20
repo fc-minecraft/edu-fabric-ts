@@ -160,8 +160,7 @@ namespace myCustomBlocks {
     }
 
     /**
-     * Установить предмет агенту с ограниченным выбором блоков
-     * (Использует стандартные иконки MakeCode)
+     * Выдать предмет агенту
      */
     //% block="выдать агенту `Block.PackedIce` количеством $count"
     export function agentSetLimitedItem(count: number): void {
