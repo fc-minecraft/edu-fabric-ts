@@ -69,100 +69,101 @@ namespace myCustomBlocks {
 
 
     /**
-     * Ограниченные блоки для MakeCode с иконками (из стандартного набора)
+     * Ограниченные блоки с графическим меню выбора
+     * (Использует стандартные иконки из block.jres)
      */
     export enum LimitedBlocks {
         // ❄️ Лёд и снег
-        //% blockIdentity=blocks.block
+        //% block="`Block.PackedIce`"
         PackedIce = Block.PackedIce,
-        //% blockIdentity=blocks.block
+        //% block="`Block.Snow`"
         SnowBlock = Block.Snow,
 
         // 🪵 Деревянные доски (все виды)
-        //% blockIdentity=blocks.block
+        //% block="`Block.PlanksOak`"
         OakPlanks = Block.PlanksOak,
 
         // 🌿 Песок и гравий
-        //% blockIdentity=blocks.block
+        //% block="`Block.Sand`"
         Sand = Block.Sand,
-        //% blockIdentity=blocks.block
+        //% block="`Block.RedSand`"
         RedSand = Block.RedSand,
-        //% blockIdentity=blocks.block
+        //% block="`Block.Gravel`"
         Gravel = Block.Gravel,
 
         // 🐑 Цветная шерсть (16 цветов)
-        //% blockIdentity=blocks.block
+        //% block="`Block.Wool`"
         WhiteWool = Block.Wool,
-        //% blockIdentity=blocks.block
+        //% block="`Block.OrangeWool`"
         OrangeWool = Block.OrangeWool,
-        //% blockIdentity=blocks.block
+        //% block="`Block.MagentaWool`"
         MagentaWool = Block.MagentaWool,
-        //% blockIdentity=blocks.block
+        //% block="`Block.LightBlueWool`"
         LightBlueWool = Block.LightBlueWool,
-        //% blockIdentity=blocks.block
+        //% block="`Block.YellowWool`"
         YellowWool = Block.YellowWool,
-        //% blockIdentity=blocks.block
+        //% block="`Block.LimeWool`"
         LimeWool = Block.LimeWool,
-        //% blockIdentity=blocks.block
+        //% block="`Block.PinkWool`"
         PinkWool = Block.PinkWool,
-        //% blockIdentity=blocks.block
+        //% block="`Block.GrayWool`"
         GrayWool = Block.GrayWool,
-        //% blockIdentity=blocks.block
+        //% block="`Block.LightGrayWool`"
         LightGrayWool = Block.LightGrayWool,
-        //% blockIdentity=blocks.block
+        //% block="`Block.CyanWool`"
         CyanWool = Block.CyanWool,
-        //% blockIdentity=blocks.block
+        //% block="`Block.PurpleWool`"
         PurpleWool = Block.PurpleWool,
-        //% blockIdentity=blocks.block
+        //% block="`Block.BlueWool`"
         BlueWool = Block.BlueWool,
-        //% blockIdentity=blocks.block
+        //% block="`Block.BrownWool`"
         BrownWool = Block.BrownWool,
-        //% blockIdentity=blocks.block
+        //% block="`Block.GreenWool`"
         GreenWool = Block.GreenWool,
-        //% blockIdentity=blocks.block
+        //% block="`Block.RedWool`"
         RedWool = Block.RedWool,
-        //% blockIdentity=blocks.block
+        //% block="`Block.BlackWool`"
         BlackWool = Block.BlackWool,
 
         // 🏺 Цветная глина (16 цветов)
-        //% blockIdentity=blocks.block
+        //% block="`Block.WhiteTerracotta`"
         WhiteTerracotta = Block.WhiteTerracotta,
-        //% blockIdentity=blocks.block
+        //% block="`Block.OrangeTerracotta`"
         OrangeTerracotta = Block.OrangeTerracotta,
-        //% blockIdentity=blocks.block
+        //% block="`Block.MagentaTerracotta`"
         MagentaTerracotta = Block.MagentaTerracotta,
-        //% blockIdentity=blocks.block
+        //% block="`Block.LightBlueTerracotta`"
         LightBlueTerracotta = Block.LightBlueTerracotta,
-        //% blockIdentity=blocks.block
+        //% block="`Block.YellowTerracotta`"
         YellowTerracotta = Block.YellowTerracotta,
-        //% blockIdentity=blocks.block
+        //% block="`Block.LimeTerracotta`"
         LimeTerracotta = Block.LimeTerracotta,
-        //% blockIdentity=blocks.block
+        //% block="`Block.PinkTerracotta`"
         PinkTerracotta = Block.PinkTerracotta,
-        //% blockIdentity=blocks.block
+        //% block="`Block.GrayTerracotta`"
         GrayTerracotta = Block.GrayTerracotta,
-        //% blockIdentity=blocks.block
+        //% block="`Block.LightGrayTerracotta`"
         LightGrayTerracotta = Block.LightGrayTerracotta,
-        //% blockIdentity=blocks.block
+        //% block="`Block.CyanTerracotta`"
         CyanTerracotta = Block.CyanTerracotta,
-        //% blockIdentity=blocks.block
+        //% block="`Block.PurpleTerracotta`"
         PurpleTerracotta = Block.PurpleTerracotta,
-        //% blockIdentity=blocks.block
+        //% block="`Block.BlueTerracotta`"
         BlueTerracotta = Block.BlueTerracotta,
-        //% blockIdentity=blocks.block
+        //% block="`Block.BrownTerracotta`"
         BrownTerracotta = Block.BrownTerracotta,
-        //% blockIdentity=blocks.block
+        //% block="`Block.GreenTerracotta`"
         GreenTerracotta = Block.GreenTerracotta,
-        //% blockIdentity=blocks.block
+        //% block="`Block.RedTerracotta`"
         RedTerracotta = Block.RedTerracotta,
-        //% blockIdentity=blocks.block
+        //% block="`Block.BlackTerracotta`"
         BlackTerracotta = Block.BlackTerracotta
     }
 
     /**
      * Установить предмет агенту с ограниченным выбором блоков
      */
-    //% block="агент получает $blockType количеством $n"
+    //% block="выдать агенту $blockType в количестве $n"
     export function agentSetLimitedItem(blockType: LimitedBlocks, n: number): void {
         agent.setItem(blockType, n, 1);
     }
