@@ -167,6 +167,14 @@ namespace myCustomBlocks {
         agent.setItem(Block.PackedIce, count, 1);
     }
 
+    /**
+     * Выдать предмет агенту
+     */
+    //% block="выдать агенту `Block.PlanksOak` в количестве $count"
+    export function agentSetLimitedItemPlanksOak(count: number): void {
+        agent.setItem(Block.PlanksOak, count, 1);
+    }
+
 
     /**
      * Пользовательский список направлений для агента
