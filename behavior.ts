@@ -160,7 +160,7 @@ namespace myCustomBlocks {
     }
 
     /**
-     * Выдать предмет агенту
+     * Выдать лед агенту
      */
     //% block="выдать агенту `Block.PackedIce` в количестве $count"
     export function agentSetLimitedItem(count: number): void {
@@ -168,7 +168,7 @@ namespace myCustomBlocks {
     }
 
     /**
-     * Выдать предмет агенту
+     * Выдать дубовые доски агенту
      */
     //% block="выдать агенту `Block.PlanksOak` в количестве $count"
     export function agentSetLimitedItemPlanksOak(count: number): void {
@@ -176,7 +176,7 @@ namespace myCustomBlocks {
     }
 
     /**
-     * Выдать предмет агенту
+     * Выдать лестницу агенту
      */
     //% block="выдать агенту `Block.Ladder` в количестве $count"
     export function agentSetLimitedItemLadder(count: number): void {
